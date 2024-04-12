@@ -15,7 +15,12 @@ const SearchBar = forwardRef<HTMLInputElement, Props>(
 
     return (
       <S.SearchBarWrapper>
-        <S.SearchInput ref={ref} onKeyDown={handleInputKeyDown} type="text" />
+        <S.SearchInput
+          ref={ref}
+          placeholder="검색어를 입력해주세요."
+          onKeyDown={handleInputKeyDown}
+          type="text"
+        />
         <S.SearchButton onClick={searchProductList} type="button">
           검색
         </S.SearchButton>

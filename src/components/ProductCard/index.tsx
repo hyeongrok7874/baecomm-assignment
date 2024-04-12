@@ -11,7 +11,7 @@ const ProductCard: React.FC<Props> = ({
   ...attributes
 }) => (
   <S.ProductCardWrapper to={`/product/${id}`} {...attributes}>
-    <S.Thumbnail src={thumbnail} />
+    <S.Thumbnail src={thumbnail} alt={`${title} thumbnail`} />
     <S.BrandAndTitle>
       <S.Brand>{brand}</S.Brand>
       <S.Title>{title}</S.Title>

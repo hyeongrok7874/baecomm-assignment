@@ -29,7 +29,10 @@ const ProductDetailPage = () => {
     <>
       <BackToListLink />
       <S.Detail>
-        <S.Thumbnail src={productDetail?.thumbnail} />
+        <S.Thumbnail
+          src={productDetail?.thumbnail}
+          alt={`${productDetail?.title} thumbnail`}
+        />
         <S.Brand>{productDetail?.brand}</S.Brand>
         <S.Title>{productDetail?.title}</S.Title>
         <S.Price>${productDetail?.price}</S.Price>
@@ -37,8 +40,12 @@ const ProductDetailPage = () => {
       </S.Detail>
       <S.Divider />
       <S.ImageWrapper>
-        {productDetail?.images.map((imageUrl) => (
-          <S.Image key={imageUrl} src={imageUrl} />
+        {productDetail?.images.map((imageUrl, index) => (
+          <S.Image
+            key={imageUrl}
+            src={imageUrl}
+            alt={`${productDetail.title} image ${index + 1}`}
+          />
         ))}
       </S.ImageWrapper>
     </>
