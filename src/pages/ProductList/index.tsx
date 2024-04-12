@@ -28,7 +28,9 @@ const ProductListPage = () => {
 
       decideMoreButtonVisibility(data);
 
-      window.scrollTo(0, scrollPosition);
+      setTimeout(() => {
+        window.scrollTo(0, scrollPosition);
+      }, 0);
 
       sessionStorage.clear();
     });
