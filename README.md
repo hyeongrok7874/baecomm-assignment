@@ -2,7 +2,7 @@
 
 아래 링크에서 확인 가능하십니다.
 
-https://baecomm-assignment.netlify.app
+<https://baecomm-assignment.vercel.app>
 
 ## 사용 라이브러리
 
