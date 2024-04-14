@@ -15,9 +15,6 @@ const ProductListPage = () => {
   useEffect(() => {
     const keyword = sessionStorage.getItem("keyword") || "";
     const productAmount = Number(sessionStorage.getItem("productAmount") || 10);
-    const scrollPosition = Number(
-      sessionStorage.getItem("scrollPosition") || 0
-    );
 
     if (inputRef.current) {
       inputRef.current.value = keyword;
@@ -28,13 +25,22 @@ const ProductListPage = () => {
 
       decideMoreButtonVisibility(data);
 
-      setTimeout(() => {
-        window.scrollTo(0, scrollPosition);
-      }, 0);
-
-      sessionStorage.clear();
+      sessionStorage.removeItem("keyword");
+      sessionStorage.removeItem("productAmount");
     });
   }, []);
+
+  useEffect(() => {
+    const scrollPosition = Number(
+      sessionStorage.getItem("scrollPosition") || 0
+    );
+
+    if (!scrollPosition || !productList) return;
+
+    window.scrollTo(0, scrollPosition);
+
+    sessionStorage.removeItem("scrollPosition");
+  }, [productList]);
 
   const searchProductList = async () => {
     const keyword = inputRef.current?.value || "";
